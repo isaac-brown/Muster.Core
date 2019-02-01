@@ -20,6 +20,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\src\Blog.Core\Blog.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Reference Include="PrettyTest">
       <HintPath>..\..\..\PrettyTest\test\PrettyTest.Test\bin\Debug\netcoreapp2.1\PrettyTest.dll</HintPath>
     </Reference>
