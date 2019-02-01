@@ -341,3 +341,7 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database 
 healthchecksdb
+
+# Project XML documentation
+src/Blog\.Core/Blog\.Core\.xml
+test/Blog\.Core\.Test/Blog\.Core\.Test\.xml
