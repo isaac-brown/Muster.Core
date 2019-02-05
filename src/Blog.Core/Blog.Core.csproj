@@ -6,6 +6,11 @@
     <Authors>Isaac Brown</Authors>
     <Description>Core package for creating and managing blog posts.</Description>
     <RepositoryType>github</RepositoryType>
+    <PackageTags>blog</PackageTags>
+    <PackageLicenseUrl>https://github.com/isaac-brown/Blog.Core/blob/master/LICENCE.txt</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/isaac-brown/Blog.Core</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/isaac-brown/Blog.Core</RepositoryUrl>
+    <PackageIconUrl>https://github.com/isaac-brown/Blog.Core/tree/master/src/blog-core.png</PackageIconUrl>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
