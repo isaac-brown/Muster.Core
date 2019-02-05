@@ -14,3 +14,4 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - MIT licence for project.
 - Readme for project.
 - Changelog for project.
+- Icon for project.
