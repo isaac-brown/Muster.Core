@@ -2,10 +2,10 @@
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 // </copyright>
 
-namespace Blog.Core.Test.Spec
+namespace Muster.Core.Test.Spec
 {
     using System;
-    using Blog.Core.Entity;
+    using Muster.Core.Entity;
     using FluentAssertions;
     using PrettyTest;
     using Xunit;

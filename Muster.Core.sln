@@ -7,9 +7,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{CF598EC5-08D
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{98C8ECBF-E7C1-461C-ABB3-2561A39ED087}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blog.Core.Test", "test\Blog.Core.Test\Blog.Core.Test.csproj", "{A75BE14D-92A9-41F3-B06B-E3DF44D38590}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Muster.Core.Test", "test\Muster.Core.Test\Muster.Core.Test.csproj", "{A75BE14D-92A9-41F3-B06B-E3DF44D38590}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blog.Core", "src\Blog.Core\Blog.Core.csproj", "{E23B88E9-5C9C-4E8F-88FE-7ACCDC486675}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Muster.Core", "src\Muster.Core\Muster.Core.csproj", "{E23B88E9-5C9C-4E8F-88FE-7ACCDC486675}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

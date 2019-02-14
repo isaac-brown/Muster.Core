@@ -7,15 +7,15 @@
     <Description>Core package for creating and managing blog posts.</Description>
     <RepositoryType>github</RepositoryType>
     <PackageTags>blog</PackageTags>
-    <PackageLicenseUrl>https://github.com/isaac-brown/Blog.Core/blob/master/LICENCE.txt</PackageLicenseUrl>
-    <PackageProjectUrl>https://github.com/isaac-brown/Blog.Core</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/isaac-brown/Blog.Core</RepositoryUrl>
-    <PackageIconUrl>https://github.com/isaac-brown/Blog.Core/tree/master/src/blog-core.png</PackageIconUrl>
+    <PackageLicenseUrl>https://github.com/isaac-brown/Muster.Core/blob/master/LICENCE.txt</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/isaac-brown/Muster.Core</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/isaac-brown/Muster.Core</RepositoryUrl>
+    <PackageIconUrl>https://github.com/isaac-brown/Muster.Core/tree/master/src/blog-core.png</PackageIconUrl>
     <Copyright>2019</Copyright>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>C:\Users\Isaac Laptop\Desktop\Github\Blog.Core\src\Blog.Core\Blog.Core.xml</DocumentationFile>
+    <DocumentationFile>C:\Users\Isaac Laptop\Desktop\Github\Muster.Core\src\Muster.Core\Muster.Core.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>

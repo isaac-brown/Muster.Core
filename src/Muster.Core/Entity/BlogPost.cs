@@ -2,11 +2,11 @@
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 // </copyright>
 
-namespace Blog.Core.Entity
+namespace Muster.Core.Entity
 {
     using System;
     using System.Collections.Generic;
-    using Blog.Core.Exception;
+    using Muster.Core.Exception;
     using NodaTime;
 
     /// <summary>

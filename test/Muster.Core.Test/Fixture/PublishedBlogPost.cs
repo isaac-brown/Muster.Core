@@ -2,9 +2,9 @@
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 // </copyright>
 
-namespace Blog.Core.Test.Fixture
+namespace Muster.Core.Test.Fixture
 {
-    using Blog.Core.Entity;
+    using Muster.Core.Entity;
 
     /// <summary>
     /// Represents a <see cref="BlogPost"/> that is well formed and in <see cref="BlogPostStatus.Published"/> status.

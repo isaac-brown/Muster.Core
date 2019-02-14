@@ -2,10 +2,10 @@
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 // </copyright>
 
-namespace Blog.Core.Exception
+namespace Muster.Core.Exception
 {
     using System;
-    using Blog.Core.Entity;
+    using Muster.Core.Entity;
 
     /// <summary>
     /// An excpetion that indicates that a <see cref="BlogPost"/> which has already been published

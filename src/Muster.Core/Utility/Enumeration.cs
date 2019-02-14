@@ -2,7 +2,7 @@
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 // </copyright>
 
-namespace Blog.Core.Utility
+namespace Muster.Core.Utility
 {
     using System;
     using System.Collections.Generic;

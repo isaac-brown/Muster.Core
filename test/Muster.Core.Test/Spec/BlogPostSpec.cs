@@ -2,13 +2,13 @@
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 // </copyright>
 
-namespace Blog.Core.Test.Spec
+namespace Muster.Core.Test.Spec
 {
     using System;
-    using Blog.Core;
-    using Blog.Core.Entity;
-    using Blog.Core.Exception;
-    using Blog.Core.Test.Fixture;
+    using Muster.Core;
+    using Muster.Core.Entity;
+    using Muster.Core.Exception;
+    using Muster.Core.Test.Fixture;
     using FluentAssertions;
     using NodaTime;
     using PrettyTest;

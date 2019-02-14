@@ -2,10 +2,10 @@
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 // </copyright>
 
-namespace Blog.Core
+namespace Muster.Core
 {
-    using Blog.Core.Entity;
-    using Blog.Core.Utility;
+    using Muster.Core.Entity;
+    using Muster.Core.Utility;
 
     /// <summary>
     /// Represents the possible status' of a <see cref="BlogPost"/>.
