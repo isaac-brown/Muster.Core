@@ -5,8 +5,8 @@
 namespace Muster.Core.Test.Spec
 {
     using System;
-    using Muster.Core.Entity;
     using FluentAssertions;
+    using Muster.Core.Entity;
     using PrettyTest;
     using Xunit;
 

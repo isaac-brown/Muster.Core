@@ -5,11 +5,11 @@
 namespace Muster.Core.Test.Spec
 {
     using System;
+    using FluentAssertions;
     using Muster.Core;
     using Muster.Core.Entity;
     using Muster.Core.Exception;
     using Muster.Core.Test.Fixture;
-    using FluentAssertions;
     using NodaTime;
     using PrettyTest;
 
