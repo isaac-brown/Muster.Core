@@ -345,3 +345,7 @@ healthchecksdb
 # Project XML documentation
 src/Blog\.Core/Blog\.Core\.xml
 test/Blog\.Core\.Test/Blog\.Core\.Test\.xml
+
+# Documentation Files
+src/Muster\.Core/Muster\.Core\.xml
+test/Muster\.Core\.Test/Muster\.Core\.Test\.xml
