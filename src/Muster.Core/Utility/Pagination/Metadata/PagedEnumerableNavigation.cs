@@ -106,5 +106,18 @@ namespace Muster.Core.Utility.Pagination.Metadata
     {
       return new PagedEnumerableNavigation(builder);
     }
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="PagedEnumerableNavigation"/> class with default values.
+    /// </summary>
+    /// <remarks>
+    /// Think of this like a default constructor, all properties will have default values and be well formed.
+    /// </remarks>
+    /// <returns>A new instance of the <see cref="PagedEnumerableNavigation"/> class with default values.</returns>
+    public static PagedEnumerableNavigation Default()
+    {
+      // TODO: Unit tests for this.
+      return Create(PagedEnumerableNavigationBuilder.Create());
+    }
   }
 }

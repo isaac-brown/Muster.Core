@@ -5,10 +5,12 @@
 namespace Muster.Core.Utility.Pagination.Metadata
 {
   using System;
+  using System.ComponentModel;
 
   /// <summary>
   /// Provides metadata for a <see cref="PagedEnumerable{TEntity}"/> regarding counts.
   /// </summary>
+  [ImmutableObject(immutable: true)]
   public class PagedEnumerableCount
   {
     /// <summary>
