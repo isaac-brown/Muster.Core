@@ -4,8 +4,8 @@
 
 namespace Muster.Core.Utility.Pagination.Metadata
 {
-  using System;
   using System.ComponentModel;
+  using Muster.Core.Utility.Pagination;
 
   /// <summary>
   /// Provides metadata for a <see cref="PagedEnumerable{TEntity}"/> regarding counts.

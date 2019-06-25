@@ -7,6 +7,7 @@ namespace Muster.Core.Utility.Pagination.Metadata
   using System;
   using System.ComponentModel;
   using Muster.Core.Utility;
+  using Muster.Core.Utility.Pagination;
 
   /// <summary>
   /// Class for building <see cref="PagedEnumerableCount"/>.
