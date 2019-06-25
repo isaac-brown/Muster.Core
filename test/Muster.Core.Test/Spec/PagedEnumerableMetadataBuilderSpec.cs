@@ -6,6 +6,7 @@ namespace Muster.Core.Test.Spec
 {
   using System;
   using FluentAssertions;
+  using Muster.Core.Test.Fixture;
   using Muster.Core.Utility.Pagination.Metadata;
   using PrettyTest;
 
@@ -115,19 +116,8 @@ namespace Muster.Core.Test.Spec
     public void Given_well_formed_inputs_When_Build_is_called_Then_a_matching_PagedEnumerableMetadata_should_be_created()
     {
       // Arrange.
-      // TODO: Move into a factory class.
-      PagedEnumerableCount count;
-      count = PagedEnumerableCountBuilder.Create()
-                                         .WithCountSkipped(1)
-                                         .WithCurrent(10)
-                                         .WithTotal(100)
-                                         .Build();
-
-      PagedEnumerableNavigation navigation;
-      navigation = PagedEnumerableNavigationBuilder.Create()
-                                                   .WithCurrentPageNumber(1)
-                                                   .WithLastPageNumber(10)
-                                                   .Build();
+      var count = PagedEnumerableCountFactory.WellFormed();
+      var navigation = PagedEnumerableNavigationFactory.WellFormed();
 
       PagedEnumerableMetadata metadata;
 
