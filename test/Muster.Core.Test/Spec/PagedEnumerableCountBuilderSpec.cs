@@ -45,7 +45,7 @@ namespace Muster.Core.Test.Spec
       // Assert.
       testCode.Should()
               .Throw<ArgumentOutOfRangeException>()
-              .WithMessage("*current cannot be negative*");
+              .WithMessage($"Argument cannot be negative*Parameter name: current*Actual value was {input}.");
     }
 
     [PrettyFact]
@@ -75,7 +75,7 @@ namespace Muster.Core.Test.Spec
       // Assert.
       testCode.Should()
               .Throw<ArgumentOutOfRangeException>()
-              .WithMessage("*total cannot be negative*");
+              .WithMessage($"Argument cannot be negative*Parameter name: total*Actual value was {input}.");
     }
 
     [PrettyFact]
@@ -105,7 +105,7 @@ namespace Muster.Core.Test.Spec
       // Assert.
       testCode.Should()
               .Throw<ArgumentOutOfRangeException>()
-              .WithMessage("*countSkipped cannot be negative*");
+              .WithMessage($"Argument cannot be negative*Parameter name: countSkipped*Actual value was {input}.");
     }
 
     [PrettyFact]

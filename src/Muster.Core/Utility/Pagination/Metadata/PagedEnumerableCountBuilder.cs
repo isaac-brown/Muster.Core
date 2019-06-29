@@ -56,7 +56,9 @@ namespace Muster.Core.Utility.Pagination.Metadata
       if (current < 0)
       {
         throw new ArgumentOutOfRangeException(
-          $"Parameter {nameof(current)} cannot be negative. Actual value: {current}");
+          nameof(current),
+          current,
+          $"Argument cannot be negative.");
       }
 
       return new PagedEnumerableCountBuilder(
@@ -75,7 +77,9 @@ namespace Muster.Core.Utility.Pagination.Metadata
       if (total < 0)
       {
         throw new ArgumentOutOfRangeException(
-          $"Parameter {nameof(total)} cannot be negative. Actual value: {total}");
+          nameof(total),
+          total,
+          $"Argument cannot be negative.");
       }
 
       return new PagedEnumerableCountBuilder(
@@ -94,7 +98,9 @@ namespace Muster.Core.Utility.Pagination.Metadata
       if (countSkipped < 0)
       {
         throw new ArgumentOutOfRangeException(
-          $"Parameter {nameof(countSkipped)} cannot be negative. Actual value: {countSkipped}");
+          nameof(countSkipped),
+          countSkipped,
+          $"Argument cannot be negative.");
       }
 
       return new PagedEnumerableCountBuilder(
