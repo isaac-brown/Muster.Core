@@ -1,6 +1,6 @@
 {
   "name": "muster.core",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "Core package for creating and managing blog posts.",
   "directories": {
     "doc": "docs",
