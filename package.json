@@ -9,11 +9,12 @@
   "scripts": {
     "build": "dotnet build src/Muster.Core",
     "publish": "echo 'not implemented!'",
-    "release": "standard-version --commit-all",
     "release:dry": "standard-version --dry-run",
     "release:preview": "standard-version --skip.changelog=true --skip.tag=true --prerelease preview --commit-all",
+    "release": "standard-version --commit-all",
+    "test:watch": "dotnet watch --project test/Muster.Core.Test test",
     "test": "dotnet test",
-    "test:watch": "dotnet watch --project test/Muster.Core.Test test"
+    "update:packages": "powershell ./scripts/update-packages.ps1"
   },
   "repository": {
     "type": "git",
