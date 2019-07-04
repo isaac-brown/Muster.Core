@@ -96,7 +96,7 @@ namespace Muster.Core.Utility
         public static T FromKeyCode<T>(string keyCode)
             where T : Enumeration, new()
         {
-            var matchingItem = Parse<T, string>(keyCode, "value", item => item.KeyCode == keyCode);
+            var matchingItem = Parse<string, T>(keyCode, "value", item => item.KeyCode == keyCode);
             return matchingItem;
         }
 
@@ -109,7 +109,7 @@ namespace Muster.Core.Utility
         public static T FromDisplayName<T>(string displayName)
             where T : Enumeration, new()
         {
-            var matchingItem = Parse<T, string>(displayName, "display name", item => item.DisplayName == displayName);
+            var matchingItem = Parse<string, T>(displayName, "display name", item => item.DisplayName == displayName);
             return matchingItem;
         }
 
@@ -145,14 +145,14 @@ namespace Muster.Core.Utility
             return this.KeyCode.CompareTo(((Enumeration)other).KeyCode);
         }
 
-        private static T Parse<T, K>(K value, string description, Func<T, bool> predicate)
-            where T : Enumeration, new()
+        private static TEnumeration Parse<TValue, TEnumeration>(TValue value, string description, Func<TEnumeration, bool> predicate)
+            where TEnumeration : Enumeration, new()
         {
-            var matchingItem = GetAll<T>().FirstOrDefault(predicate);
+            var matchingItem = GetAll<TEnumeration>().FirstOrDefault(predicate);
 
             if (matchingItem == null)
             {
-                var message = string.Format("'{0}' is not a valid {1} in {2}", value, description, typeof(T));
+                var message = $"'{value}' is not a valid {description} in {typeof(TEnumeration)}";
                 throw new ApplicationException(message);
             }
 
