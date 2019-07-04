@@ -88,7 +88,7 @@ namespace Muster.Core.Utility
         }
 
         /// <summary>
-        /// Creates an <see cref="Enumeration"/> of the given type from the specified <paramref name="keyCode"/>'.
+        /// Creates an <see cref="Enumeration"/> of the given type from the specified <paramref name="keyCode"/>.
         /// </summary>
         /// <typeparam name="T">A super type of <see cref="Enumeration"/>.</typeparam>
         /// <param name="keyCode">The value to construct the <see cref="Enumeration"/> from.</param>
@@ -101,11 +101,11 @@ namespace Muster.Core.Utility
         }
 
         /// <summary>
-        /// asdjk
+        /// Creates an <see cref="Enumeration"/> of the given type from the specified <paramref name="displayName"/>.
         /// </summary>
-        /// <typeparam name="T">a</typeparam>
-        /// <param name="displayName">asd</param>
-        /// <returns>asds</returns>
+        /// <typeparam name="T">A super type of <see cref="Enumeration"/>.</typeparam>
+        /// <param name="displayName">The value to construct the <see cref="Enumeration"/> from.</param>
+        /// <returns>An <see cref="Enumeration"/> of the given type.</returns>
         public static T FromDisplayName<T>(string displayName)
             where T : Enumeration, new()
         {

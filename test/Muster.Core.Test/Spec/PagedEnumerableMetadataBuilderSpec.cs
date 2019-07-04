@@ -11,7 +11,7 @@ namespace Muster.Core.Test.Spec
   using PrettyTest;
 
   /// <summary>
-  /// Unit tests for <see cref="PagedEnumerableMetadataBuilder"/>
+  /// Unit tests for <see cref="PagedEnumerableMetadataBuilder"/>.
   /// </summary>
   public class PagedEnumerableMetadataBuilderSpec
   {

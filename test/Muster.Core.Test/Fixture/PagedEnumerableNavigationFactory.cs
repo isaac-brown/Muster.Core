@@ -7,7 +7,7 @@ namespace Muster.Core.Test.Fixture
   using Muster.Core.Utility.Pagination.Metadata;
 
   /// <summary>
-  /// Class for creating <see cref="PagedEnumerableNavigation"/>
+  /// Class for creating <see cref="PagedEnumerableNavigation"/>.
   /// </summary>
   internal static class PagedEnumerableNavigationFactory
   {

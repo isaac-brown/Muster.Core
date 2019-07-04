@@ -7,7 +7,7 @@ namespace Muster.Core.Test.Fixture
   using Muster.Core.Utility.Pagination.Metadata;
 
   /// <summary>
-  /// Class for creating <see cref="PagedEnumerableMetadata"/>
+  /// Class for creating <see cref="PagedEnumerableMetadata"/>.
   /// </summary>
   internal static class PagedEnumerableMetadataFactory
   {
@@ -27,9 +27,9 @@ namespace Muster.Core.Test.Fixture
     }
 
     /// <summary>
-    /// Returns null, but strongly typed as <see cref="PagedEnumerableMetadata"/>
+    /// Returns null, but strongly typed as <see cref="PagedEnumerableMetadata"/>.
     /// </summary>
-    /// <returns>null</returns>
+    /// <returns>null.</returns>
     internal static PagedEnumerableMetadata Null()
     {
       return null;

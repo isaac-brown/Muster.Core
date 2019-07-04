@@ -7,7 +7,7 @@ namespace Muster.Core.Test.Fixture
   using Muster.Core.Utility.Pagination.Metadata;
 
   /// <summary>
-  /// Class for creating <see cref="PagedEnumerableCount"/>
+  /// Class for creating <see cref="PagedEnumerableCount"/>.
   /// </summary>
   internal static class PagedEnumerableCountFactory
   {

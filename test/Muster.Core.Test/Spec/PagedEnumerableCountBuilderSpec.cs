@@ -10,7 +10,7 @@ namespace Muster.Core.Test.Spec
   using PrettyTest;
 
   /// <summary>
-  /// Unit tests for <see cref="PagedEnumerableCountBuilder"/>
+  /// Unit tests for <see cref="PagedEnumerableCountBuilder"/>.
   /// </summary>
   public class PagedEnumerableCountBuilderSpec
   {

@@ -9,7 +9,7 @@ namespace Muster.Core.Repositories
   /// <summary>
   /// A generic repository interface which defines the most basic operations a repository should implement.
   /// </summary>
-  /// <typeparam name="TKey">The identifier for the given <typeparamref name="TEntity"/></typeparam>
+  /// <typeparam name="TKey">The identifier for the given <typeparamref name="TEntity"/>.</typeparam>
   /// <typeparam name="TEntity">The type of object this repository will return.</typeparam>
   public interface IRepository<TKey, TEntity>
   {
@@ -37,9 +37,9 @@ namespace Muster.Core.Repositories
     /// <summary>
     /// Gets a paged collection of <typeparamref name="TEntity"/>s, skipping and then taking a given number of records.
     /// </summary>
-    /// <param name="take">The number of records to take. Default is `100`</param>
-    /// <param name="skip">The number of records to skip. Default is `0`</param>
-    /// <returns>A paged collection of <typeparamref name="TEntity"/>s</returns>
+    /// <param name="take">The number of records to take. Default is `100`.</param>
+    /// <param name="skip">The number of records to skip. Default is `0`.</param>
+    /// <returns>A paged collection of <typeparamref name="TEntity"/>s.</returns>
     PagedEnumerable<TEntity> GetPaged(long take = 100, long skip = 0);
 
     /// <summary>

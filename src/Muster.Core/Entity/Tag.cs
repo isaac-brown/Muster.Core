@@ -43,7 +43,7 @@ namespace Muster.Core.Entity
         /// using the given name.
         /// </summary>
         /// <param name="name">The name for the tag.</param>
-        /// <returns>A new <see cref="Tag"/> instance.ra</returns>
+        /// <returns>A new <see cref="Tag"/> instance.</returns>
         public static Tag Create(string name)
         {
             return new Tag(name);
