@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.1](https://github.com/isaac-brown/Muster.Core/compare/v0.1.0...v0.1.1) (2019-07-10)
+
+
+### Bug Fixes
+
+* **enumeration:** methods GetAll, FromKeyCode and FromDisplayName now actually work ([fbd89ad](https://github.com/isaac-brown/Muster.Core/commit/fbd89ad))
+
+
+
 ## 0.1.0 (2019-06-29)
 
 ### Features
