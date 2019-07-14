@@ -165,8 +165,7 @@ namespace Muster.Core.Utility
 
       throw new ArgumentException(
         message: $"argument expected to be of type [{typeof(Enumeration)}], but found [{other.GetType()}]",
-        paramName: nameof(other)
-      );
+        paramName: nameof(other));
     }
 
     private static TEnumeration Parse<TValue, TEnumeration>(TValue value, string description, Func<TEnumeration, bool> predicate)

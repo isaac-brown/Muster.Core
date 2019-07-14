@@ -4,25 +4,30 @@
 
 namespace Muster.Core.Test.Fixture
 {
-    using Muster.Core.Entity;
-    using NodaTime;
+  using System;
+  using Muster.Core.Entity;
+  using Muster.Core.Entity.Builders;
+  using NodaTime;
 
+  /// <summary>
+  /// Represents a <see cref="BlogPost"/> that is well formed and in <see cref="BlogPostStatus.Draft"/> status.
+  /// </summary>
+  internal class DraftBlogPost
+  {
     /// <summary>
-    /// Represents a <see cref="BlogPost"/> that is well formed and in <see cref="BlogPostStatus.Draft"/> status.
+    /// Initialize a new <see cref="BlogPost"/> that is a draft.
     /// </summary>
-    internal class DraftBlogPost
+    /// <returns>A draft <see cref="BlogPost"/>.</returns>
+    internal static BlogPost Create()
     {
-        /// <summary>
-        /// Initialize a new <see cref="BlogPost"/> that is a draft.
-        /// </summary>
-        /// <returns>A draft <see cref="BlogPost"/>.</returns>
-        internal static BlogPost Create()
-        {
-            string content = "# Something\nWords and things and such.";
-            IClock clock = SystemClock.Instance;
-            BlogPost blogPost = BlogPost.Create(content, clock);
+      string content = "# Something\nWords and things and such.";
+      IClock clock = SystemClock.Instance;
+      BlogPost blogPost = BlogPostBuilder.Create(clock)
+                                         .WithId(Guid.NewGuid())
+                                         .WithContent(content)
+                                         .Build();
 
-            return blogPost;
-        }
+      return blogPost;
     }
+  }
 }

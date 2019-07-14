@@ -8,6 +8,7 @@ namespace Muster.Core.Test.Spec
   using FluentAssertions;
   using Muster.Core;
   using Muster.Core.Entity;
+  using Muster.Core.Entity.Builders;
   using Muster.Core.Exception;
   using Muster.Core.Test.Fixture;
   using NodaTime;
@@ -22,101 +23,18 @@ namespace Muster.Core.Test.Spec
 #pragma warning disable SA1600 // Elements must be documented
 
     [PrettyFact]
-    public void Given_a_null_IClock_When_a_BlogPost_is_created_Then_a_ArgumentNullException_should_be_thrown()
+    public void Given_builder_is_null_When_Create_is_called_Then_a_ArgumentNullException_should_be_thrown()
     {
       // Given.
       BlogPost blogPost;
-      IClock clock = null;
+      BlogPostBuilder builder = null;
 
       // When.
-      Action action = () => blogPost = BlogPost.Create(string.Empty, clock);
+      Action action = () => blogPost = BlogPost.Create(builder);
 
       // Then.
-      action.Should().Throw<ArgumentNullException>("Because we need a valid clock reference to timestamp");
-    }
-
-    [PrettyFact]
-    public void Given_content_that_is_null_When_a_BlogPost_is_created_Then_Content_should_be_null()
-    {
-      // Given.
-      BlogPost blogPost;
-      string content = null;
-
-      // When.
-      blogPost = BlogPost.Create(content, DummyClock.Create());
-
-      // Then.
-      blogPost.Content.Should().BeNull();
-    }
-
-    [PrettyFact]
-    public void Given_content_that_is_empty_When_a_BlogPost_is_created_Then_Content_should_be_empty()
-    {
-      // Given.
-      string content = string.Empty;
-      BlogPost blogPost;
-
-      // When.
-      blogPost = BlogPost.Create(content, DummyClock.Create());
-
-      // Then.
-      blogPost.Content.Should().BeEmpty();
-    }
-
-    [PrettyFact]
-    public void Given_a_current_Instant_When_a_BlogPost_is_created_Then_Created_should_equal_the_current_Instant()
-    {
-      // Given.
-      IClock clock = ConstantClockStub.Create(milliseconds: 10);
-      long expected = clock.GetCurrentInstant().ToUnixTimeMilliseconds();
-      string content = "# Title\n\nHere is some content";
-
-      // When.
-      BlogPost blogPost = BlogPost.Create(content, clock);
-
-      // Then.
-      blogPost.Created.ToUnixTimeMilliseconds().Should().Be(expected);
-    }
-
-    [PrettyFact]
-    public void Given_valid_inputs_When_a_BlogPost_is_created_Then_Status_should_be_Draft()
-    {
-      // Given.
-      IClock clock = DummyClock.Create();
-      string content = string.Empty;
-
-      // When.
-      BlogPost blogPost = BlogPost.Create(content, clock);
-
-      // Then.
-      blogPost.Status.Should().Be(BlogPostStatus.Draft);
-    }
-
-    [PrettyFact]
-    public void Given_valid_inputs_When_a_BlogPost_is_created_Then_Id_should_be_a_non_empty_Guid()
-    {
-      // Given.
-      IClock clock = DummyClock.Create();
-      string content = string.Empty;
-
-      // When.
-      BlogPost blogPost = BlogPost.Create(content, clock);
-
-      // Then.
-      blogPost.Id.Should().NotBeEmpty();
-    }
-
-    [PrettyFact]
-    public void Given_valid_inputs_When_a_BlogPost_is_created_Then_Tags_should_be_empty()
-    {
-      // Given.
-      BlogPost blogPost = DraftBlogPost.Create();
-
-      // When.
-      blogPost.Publish();
-
-      // Then.
-      blogPost.Tags.Should().BeEmpty();
+      action.Should().Throw<ArgumentNullException>()
+            .WithMessage("*cannot be null*builder*");
     }
 
     [PrettyFact]
