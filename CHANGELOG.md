@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.2](https://github.com/isaac-brown/Muster.Core/compare/v0.1.1...v0.1.2) (2019-07-14)
+
+
+### Bug Fixes
+
+* **blog-post:** swapped over to use dedicated builder class ([ab0a76a](https://github.com/isaac-brown/Muster.Core/commit/ab0a76a))
+* **tag:** remove property `Id` ([e51fcc8](https://github.com/isaac-brown/Muster.Core/commit/e51fcc8))
+
+
+
 ### [0.1.1](https://github.com/isaac-brown/Muster.Core/compare/v0.1.0...v0.1.1) (2019-07-10)
 
 
