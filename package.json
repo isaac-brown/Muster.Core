@@ -8,7 +8,8 @@
   },
   "scripts": {
     "build": "dotnet build src/Muster.Core",
-    "publish": "echo 'not implemented!'",
+    "publish": "find src/Muster.Core/bin/Debug/*.nupkg | sort -r | head -n 1 | xargs -I {} dotnet nuget push {} --source https://nuget.org",
+    "prepublish": "dotnet pack",
     "release:dry": "standard-version --dry-run",
     "release:preview": "standard-version --skip.changelog=true --skip.tag=true --prerelease preview --commit-all",
     "release": "standard-version --commit-all",
