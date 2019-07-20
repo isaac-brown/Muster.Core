@@ -32,7 +32,7 @@ namespace Muster.Core.Entity
     /// <summary>
     /// Gets the unique identifier for this <see cref="BlogPost"/>.
     /// </summary>
-    public Guid Id { get; }
+    public string Id { get; }
 
     /// <summary>
     /// Gets the text content of the <see cref="BlogPost"/>.

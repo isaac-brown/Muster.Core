@@ -16,12 +16,11 @@ namespace Muster.Core.Entity.Builders
   [ImmutableObject(immutable: true)]
   public class BlogPostBuilder : IBuilder<BlogPost>
   {
-    private BlogPostBuilder(Instant created)
+    private BlogPostBuilder()
     {
-      this.Created = created;
     }
 
-    private BlogPostBuilder(Guid id, string content, Instant created, BlogPostStatus status, IImmutableSet<Tag> tags)
+    private BlogPostBuilder(string id, string content, Instant created, BlogPostStatus status, IImmutableSet<Tag> tags)
     {
       this.Id = id;
       this.Content = content;
@@ -33,7 +32,7 @@ namespace Muster.Core.Entity.Builders
     /// <summary>
     /// Gets the unique identifier for this <see cref="BlogPostBuilder"/>.
     /// </summary>
-    public Guid Id { get; }
+    public string Id { get; }
 
     /// <summary>
     /// Gets the text content of the <see cref="BlogPostBuilder"/>.
@@ -68,26 +67,20 @@ namespace Muster.Core.Entity.Builders
     public IImmutableSet<Tag> Tags { get; } = ImmutableHashSet<Tag>.Empty;
 
     /// <summary>
-    /// Creates a new instance of <see cref="BlogPostBuilder"/> using the given <see cref="IClock"/>.
+    /// Creates a new instance of <see cref="BlogPostBuilder"/>.
     /// </summary>
-    /// <param name="clock">The clock used for fetching the current time.</param>
     /// <returns>A new instance of <see cref="BlogPostBuilder"/>.</returns>
-    public static BlogPostBuilder Create(IClock clock)
+    public static BlogPostBuilder Create()
     {
-      if (clock is null)
-      {
-        throw new ArgumentNullException(nameof(clock));
-      }
-
-      return new BlogPostBuilder(clock.GetCurrentInstant());
+      return new BlogPostBuilder();
     }
 
     /// <summary>
     /// Sets the <see cref="Id"/> of the builder.
     /// </summary>
-    /// <param name="id">The <see cref="Guid"/> to set as the id.</param>
+    /// <param name="id">The identifier to set as the id.</param>
     /// <returns>A new builder instance with the id set.</returns>
-    public BlogPostBuilder WithId(Guid id)
+    public BlogPostBuilder WithId(string id)
     {
       return new BlogPostBuilder(id, this.Content, this.Created, this.Status, this.Tags);
     }

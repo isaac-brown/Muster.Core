@@ -29,10 +29,10 @@ namespace Muster.Core.Test.Spec
       IClock clock = ConstantClockStub.Create(0);
 
       // Act.
-      builder = BlogPostBuilder.Create(clock);
+      builder = BlogPostBuilder.Create();
 
       // Assert.
-      builder.Id.Should().Be(Guid.Empty);
+      builder.Id.Should().Be(null);
       builder.Content.Should().Be(string.Empty);
       builder.Created.Should().Be(clock.GetCurrentInstant());
       builder.Status.Should().BeEquivalentTo(BlogPostStatus.Draft);
@@ -40,27 +40,11 @@ namespace Muster.Core.Test.Spec
     }
 
     [PrettyFact]
-    public void Given_null_IClock_When_Create_is_called_Then_an_ArgumentNullException_should_be_thrown()
-    {
-      // Arrange.
-      IClock clock = null;
-
-      // Act.
-      Action createBuilder = () => BlogPostBuilder.Create(clock);
-
-      // Assert.
-      createBuilder.Should()
-                   .Throw<ArgumentNullException>()
-                   .WithMessage("*cannot be null*clock*");
-    }
-
-    [PrettyFact]
     public void Given_a_valid_guid_When_WithId_is_called_Then_Id_should_be_set()
     {
       // Arrange.
-      IClock clock = ConstantClockStub.Create(0);
-      BlogPostBuilder builder = BlogPostBuilder.Create(clock);
-      Guid id = Guid.NewGuid();
+      BlogPostBuilder builder = BlogPostBuilder.Create();
+      string id = $"{Guid.NewGuid()}";
 
       // Act.
       builder = builder.WithId(id);
@@ -73,8 +57,7 @@ namespace Muster.Core.Test.Spec
     public void Given_a_valid_Instant_When_WithCreated_is_called_Then_Created_Should_be_set()
     {
       // Arrange.
-      IClock clock = ConstantClockStub.Create(0);
-      BlogPostBuilder builder = BlogPostBuilder.Create(clock);
+      BlogPostBuilder builder = BlogPostBuilder.Create();
       Instant created = Instant.FromUnixTimeMilliseconds(100000);
 
       // Act.
@@ -88,8 +71,7 @@ namespace Muster.Core.Test.Spec
     public void Given_stauts_is_null_When_WithStatus_is_called_Then_an_ArgumentNullException_should_be_thrown()
     {
       // Arrange.
-      IClock clock = ConstantClockStub.Create(0);
-      BlogPostBuilder builder = BlogPostBuilder.Create(clock);
+      BlogPostBuilder builder = BlogPostBuilder.Create();
       BlogPostStatus status = null;
 
       // Act.
@@ -105,8 +87,7 @@ namespace Muster.Core.Test.Spec
     public void Given_status_is_not_null_When_WithStatus_is_called_Then_Status_should_be_set()
     {
       // Arrange.
-      IClock clock = ConstantClockStub.Create(0);
-      BlogPostBuilder builder = BlogPostBuilder.Create(clock);
+      BlogPostBuilder builder = BlogPostBuilder.Create();
       BlogPostStatus status = BlogPostStatus.Published;
 
       // Act.
@@ -120,8 +101,7 @@ namespace Muster.Core.Test.Spec
     public void Given_content_is_null_When_WithContent_is_called_Then_an_ArgumentNullException_should_be_thrown()
     {
       // Arrange.
-      IClock clock = ConstantClockStub.Create(0);
-      BlogPostBuilder builder = BlogPostBuilder.Create(clock);
+      BlogPostBuilder builder = BlogPostBuilder.Create();
       string content = null;
 
       // Act.
@@ -137,8 +117,7 @@ namespace Muster.Core.Test.Spec
     public void Given_content_is_not_null_When_WithContent_is_called_Then_Content_should_be_set()
     {
       // Arrange.
-      IClock clock = ConstantClockStub.Create(0);
-      BlogPostBuilder builder = BlogPostBuilder.Create(clock);
+      BlogPostBuilder builder = BlogPostBuilder.Create();
       string content = "Content";
 
       // Act.
@@ -152,8 +131,7 @@ namespace Muster.Core.Test.Spec
     public void Given_tags_is_null_When_WithTags_is_called_Then_an_ArgumentNullException_should_be_thrown()
     {
       // Arrange.
-      IClock clock = ConstantClockStub.Create(0);
-      BlogPostBuilder builder = BlogPostBuilder.Create(clock);
+      BlogPostBuilder builder = BlogPostBuilder.Create();
       IImmutableSet<Tag> tags = null;
 
       // Act.
@@ -169,8 +147,7 @@ namespace Muster.Core.Test.Spec
     public void Given_tags_is_not_null_When_WithTags_is_called_Then_Tags_should_be_set()
     {
       // Arrange.
-      IClock clock = ConstantClockStub.Create(0);
-      BlogPostBuilder builder = BlogPostBuilder.Create(clock);
+      BlogPostBuilder builder = BlogPostBuilder.Create();
       IImmutableSet<Tag> tags = ImmutableHashSet.Create(Tag.Create("name"));
 
       // Act.
@@ -184,8 +161,7 @@ namespace Muster.Core.Test.Spec
     public void Given_two_sets_of_tags_When_WithTags_is_called_Then_Tags_should_be_last_set_of_tags()
     {
       // Arrange.
-      IClock clock = ConstantClockStub.Create(0);
-      BlogPostBuilder builder = BlogPostBuilder.Create(clock);
+      BlogPostBuilder builder = BlogPostBuilder.Create();
       IImmutableSet<Tag> tags = ImmutableHashSet.Create(Tag.Create("name"), Tag.Create("pizza"));
       IImmutableSet<Tag> otherTags = ImmutableHashSet.Create(Tag.Create("name"), Tag.Create("age"));
 
@@ -201,16 +177,15 @@ namespace Muster.Core.Test.Spec
     public void Given_a_valid_BlogPostBuilder_When_Build_is_called_Then_a_matching_BlogPost_is_constructed()
     {
       // Arrange.
-      IClock clock = ConstantClockStub.Create(0);
       BlogPostBuilder builder;
       BlogPost blogPost;
 
-      Guid id = Guid.NewGuid();
+      string id = $"{Guid.NewGuid()}";
       const string content = "Content";
       BlogPostStatus draft = BlogPostStatus.Draft;
       ImmutableHashSet<Tag> tags = ImmutableHashSet.Create(Tag.Create("tag"));
 
-      builder = BlogPostBuilder.Create(clock)
+      builder = BlogPostBuilder.Create()
                                .WithId(id)
                                .WithContent(content)
                                .WithStatus(draft)

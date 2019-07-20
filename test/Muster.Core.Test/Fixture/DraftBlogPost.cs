@@ -22,9 +22,10 @@ namespace Muster.Core.Test.Fixture
     {
       string content = "# Something\nWords and things and such.";
       IClock clock = SystemClock.Instance;
-      BlogPost blogPost = BlogPostBuilder.Create(clock)
-                                         .WithId(Guid.NewGuid())
+      BlogPost blogPost = BlogPostBuilder.Create()
+                                         .WithId($"{Guid.NewGuid()}")
                                          .WithContent(content)
+                                         .WithCreated(clock.GetCurrentInstant())
                                          .Build();
 
       return blogPost;
