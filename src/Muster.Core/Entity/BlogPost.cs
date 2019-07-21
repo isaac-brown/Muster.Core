@@ -1,4 +1,4 @@
-// <copyright file="BlogPost.cs" company="Isaac Brown">
+﻿// <copyright file="BlogPost.cs" company="Isaac Brown">
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 // </copyright>
 
@@ -6,6 +6,7 @@ namespace Muster.Core.Entity
 {
   using System;
   using System.Collections.Immutable;
+  using System.ComponentModel;
   using Muster.Core.Entity.Builders;
   using Muster.Core.Exception;
   using NodaTime;
@@ -13,6 +14,7 @@ namespace Muster.Core.Entity
   /// <summary>
   /// Represents a single blog post.
   /// </summary>
+  [ImmutableObject(immutable: true)]
   public class BlogPost
   {
     /// <summary>

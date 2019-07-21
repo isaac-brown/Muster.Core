@@ -2,11 +2,14 @@
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 // </copyright>
 
+using System.ComponentModel;
+
 namespace Muster.Core.Utility.Pagination.Metadata
 {
   /// <summary>
   /// Holds metadata for an <see cref="PagedEnumerable{TEntity}"/>.
   /// </summary>
+  [ImmutableObject(immutable: true)]
   public class PagedEnumerableMetadata
   {
     /// <summary>
