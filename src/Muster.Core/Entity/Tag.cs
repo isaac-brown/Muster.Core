@@ -1,4 +1,4 @@
-﻿// <copyright file="Tag.cs" company="Isaac Brown">
+// <copyright file="Tag.cs" company="Isaac Brown">
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 // </copyright>
 
@@ -38,7 +38,7 @@ namespace Muster.Core.Entity
     /// </summary>
     /// <param name="name">The name for the tag.</param>
     /// <returns>A new <see cref="Tag"/> instance.</returns>
-    public static Tag Create(string name)
+    public static Tag FromName(string name)
     {
       return new Tag(name);
     }

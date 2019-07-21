@@ -148,7 +148,7 @@ namespace Muster.Core.Test.Spec
     {
       // Arrange.
       BlogPostBuilder builder = BlogPostBuilder.Create();
-      IImmutableSet<Tag> tags = ImmutableHashSet.Create(Tag.Create("name"));
+      IImmutableSet<Tag> tags = ImmutableHashSet.Create(Tag.FromName("name"));
 
       // Act.
       builder = builder.WithTags(tags);
@@ -162,8 +162,8 @@ namespace Muster.Core.Test.Spec
     {
       // Arrange.
       BlogPostBuilder builder = BlogPostBuilder.Create();
-      IImmutableSet<Tag> tags = ImmutableHashSet.Create(Tag.Create("name"), Tag.Create("pizza"));
-      IImmutableSet<Tag> otherTags = ImmutableHashSet.Create(Tag.Create("name"), Tag.Create("age"));
+      IImmutableSet<Tag> tags = ImmutableHashSet.Create(Tag.FromName("name"), Tag.FromName("pizza"));
+      IImmutableSet<Tag> otherTags = ImmutableHashSet.Create(Tag.FromName("name"), Tag.FromName("age"));
 
       // Act.
       builder = builder.WithTags(tags)
@@ -183,7 +183,7 @@ namespace Muster.Core.Test.Spec
       string id = $"{Guid.NewGuid()}";
       const string content = "Content";
       BlogPostStatus draft = BlogPostStatus.Draft;
-      ImmutableHashSet<Tag> tags = ImmutableHashSet.Create(Tag.Create("tag"));
+      ImmutableHashSet<Tag> tags = ImmutableHashSet.Create(Tag.FromName("tag"));
 
       builder = BlogPostBuilder.Create()
                                .WithId(id)
