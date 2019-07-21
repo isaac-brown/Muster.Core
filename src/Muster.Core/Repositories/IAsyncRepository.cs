@@ -1,54 +1,56 @@
-﻿// <copyright file="IRepository.cs" company="Isaac Brown">
+// <copyright file="IAsyncRepository.cs" company="Isaac Brown">
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 // </copyright>
 
 namespace Muster.Core.Repositories
 {
+  using System.Threading.Tasks;
   using Muster.Core.Utility.Pagination;
 
   /// <summary>
-  /// A generic repository interface which defines the most basic operations a repository should implement.
+  /// A generic repository interface which defines the most basic operations a repository should implement,
+  /// same as <see cref="IRepository{TKey, TEntity}"/> but all methods are asynchronous.
   /// </summary>
   /// <typeparam name="TKey">The identifier for the given <typeparamref name="TEntity"/>.</typeparam>
   /// <typeparam name="TEntity">The type of object this repository will return.</typeparam>
-  public interface IRepository<TKey, TEntity>
+  public interface IAsyncRepository<TKey, TEntity>
   {
     /// <summary>
-    /// Synchronosly adds a single <typeparamref name="TEntity"/> to the repository.
+    /// Asynchronously adds a single <typeparamref name="TEntity"/> to the repository.
     /// </summary>
     /// <param name="entity">The <typeparamref name="TEntity"/> to add.</param>
     /// <returns>The <typeparamref name="TEntity"/> that was added.</returns>
-    TEntity Add(TEntity entity);
+    Task<TEntity> Add(TEntity entity);
 
     /// <summary>
-    /// Synchronosly checks for the existence of a single <typeparamref name="TEntity"/>.
+    /// Asynchronously checks for the existence of a single <typeparamref name="TEntity"/>.
     /// </summary>
     /// <param name="id">The identifier of the <typeparamref name="TEntity"/> to check the existence of.</param>
     /// <returns>true if there is a <typeparamref name="TEntity"/> with the given <paramref name="id"/>, false otherwise.</returns>
-    bool Exists(TKey id);
+    Task<bool> Exists(TKey id);
 
     /// <summary>
-    /// Synchronosly get a single <typeparamref name="TEntity"/> by it's id.
+    /// Asynchronously get a single <typeparamref name="TEntity"/> by it's id.
     /// </summary>
     /// <param name="id">The identifier of the <typeparamref name="TEntity"/> to find.</param>
     /// <returns>The entity with the given <paramref name="id"/>, or null if it doesn't exist.</returns>
-    TEntity GetById(TKey id);
+    Task<TEntity> GetById(TKey id);
 
     /// <summary>
-    /// Synchronosly gets a paged collection of <typeparamref name="TEntity"/>s, skipping records
+    /// Asynchronously gets a paged collection of <typeparamref name="TEntity"/>s, skipping records
     /// up until the given <paramref name="offset"/> and then taking a given number of records.
     /// </summary>
     /// <param name="offset">The <typeparamref name="TKey"/> of the last record to skip.
     /// Default the is default of <typeparamref name="TKey"/> which will skip no records.</param>
     /// <param name="take">The number of records to take. Default is `100`.</param>
     /// <returns>A paged collection of <typeparamref name="TEntity"/>s.</returns>
-    PagedEnumerable<TEntity> GetPaged(TKey offset = default, int take = 100);
+    Task<PagedEnumerable<TEntity>> GetPaged(TKey offset = default, int take = 100);
 
     /// <summary>
-    /// Synchronosly updates a single <typeparamref name="TEntity"/> in the repository.
+    /// Asynchronously updates a single <typeparamref name="TEntity"/> in the repository.
     /// </summary>
     /// <param name="entity">The <typeparamref name="TEntity"/> to update.</param>
     /// <returns>The <typeparamref name="TEntity"/> that was updated.</returns>
-    TEntity Update(TEntity entity);
+    Task<TEntity> Update(TEntity entity);
   }
 }

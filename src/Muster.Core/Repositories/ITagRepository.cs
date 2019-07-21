@@ -4,13 +4,12 @@
 
 namespace Muster.Core.Repositories
 {
-    using System;
-    using Muster.Core.Entity;
+  using Muster.Core.Entity;
 
-    /// <summary>
-    /// Repository for <see cref="Tag"/>s.
-    /// </summary>
-    public interface ITagRepository : IRepository<Guid, Tag>
-    {
-    }
+  /// <summary>
+  /// Repository for <see cref="Tag"/>s.
+  /// </summary>
+  public interface ITagRepository : IRepository<string, Tag>, IAsyncRepository<string, Tag>
+  {
+  }
 }

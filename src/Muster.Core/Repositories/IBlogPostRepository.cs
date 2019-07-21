@@ -4,13 +4,12 @@
 
 namespace Muster.Core.Repositories
 {
-    using System;
-    using Muster.Core.Entity;
+  using Muster.Core.Entity;
 
-    /// <summary>
-    /// Repository for <see cref="BlogPost"/>s.
-    /// </summary>
-    public interface IBlogPostRepository : IRepository<Guid, BlogPost>
-    {
-    }
+  /// <summary>
+  /// Repository for <see cref="BlogPost"/>s.
+  /// </summary>
+  public interface IBlogPostRepository : IRepository<string, BlogPost>, IAsyncRepository<string, BlogPost>
+  {
+  }
 }
