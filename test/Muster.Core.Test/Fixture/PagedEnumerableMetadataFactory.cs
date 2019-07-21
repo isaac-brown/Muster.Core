@@ -18,11 +18,9 @@ namespace Muster.Core.Test.Fixture
     internal static PagedEnumerableMetadata WellFormed()
     {
       var count = PagedEnumerableCountFactory.WellFormed();
-      var navigation = PagedEnumerableNavigationFactory.WellFormed();
 
       return PagedEnumerableMetadataBuilder.Create()
                                            .WithCount(count)
-                                           .WithNavigation(navigation)
                                            .Build();
     }
 

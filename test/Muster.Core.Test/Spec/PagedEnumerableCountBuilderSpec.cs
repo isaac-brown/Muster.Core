@@ -8,6 +8,7 @@ namespace Muster.Core.Test.Spec
   using FluentAssertions;
   using Muster.Core.Utility.Pagination.Metadata;
   using PrettyTest;
+  using Xunit;
 
   /// <summary>
   /// Unit tests for <see cref="PagedEnumerableCountBuilder"/>.
@@ -29,7 +30,7 @@ namespace Muster.Core.Test.Spec
       // Assert.
       builder.Current.Should().Be(0);
       builder.Total.Should().Be(0);
-      builder.CountSkipped.Should().Be(0);
+      builder.Taken.Should().Be(0);
     }
 
     [PrettyFact]
@@ -93,41 +94,41 @@ namespace Muster.Core.Test.Spec
     }
 
     [PrettyFact]
-    public void Given_a_negative_input_When_WithCountSkipped_is_called_Then_an_ArgumentOutOfRangeException_should_be_thrown()
+    public void Given_a_negative_input_When_WithTaken_is_called_Then_an_ArgumentOutOfRangeException_should_be_thrown()
     {
       // Arrange.
       var input = -1;
       var builder = PagedEnumerableCountBuilder.Create();
 
       // Act.
-      Action testCode = () => builder.WithCountSkipped(input);
+      Action testCode = () => builder.WithTaken(input);
 
       // Assert.
       testCode.Should()
               .Throw<ArgumentOutOfRangeException>()
-              .WithMessage($"Argument cannot be negative*Parameter name: countSkipped*Actual value was {input}.");
+              .WithMessage($"Argument cannot be negative*Parameter name: taken*Actual value was {input}.");
     }
 
     [PrettyFact]
-    public void Given_a_non_negative_input_When_WithCountSkipped_is_called_Then_Current_should_equal_input()
+    public void Given_a_non_negative_input_When_WithTaken_is_called_Then_Taken_should_equal_input()
     {
       // Arrange.
       var input = 1;
       var builder = PagedEnumerableCountBuilder.Create();
 
       // Act.
-      builder = builder.WithCountSkipped(input);
+      builder = builder.WithTaken(input);
 
       // Assert.
-      builder.CountSkipped.Should().Be(input);
+      builder.Taken.Should().Be(input);
     }
 
     [PrettyFact]
     public void Given_well_formed_inputs_When_Build_is_called_Then_a_matching_PagedEnumerableCount_should_be_created()
     {
       // Arrange.
-      int countSkipped = 1;
       int current = 2;
+      int taken = 4;
       int total = 3;
 
       PagedEnumerableCount count;
@@ -137,13 +138,13 @@ namespace Muster.Core.Test.Spec
               .Create()
               .WithCurrent(current)
               .WithTotal(total)
-              .WithCountSkipped(countSkipped)
+              .WithTaken(taken)
               .Build();
 
       // Assert.
       count.Current.Should().Be(current);
       count.Total.Should().Be(total);
-      count.Skipped.Should().Be(countSkipped);
+      count.Taken.Should().Be(taken);
     }
   }
 }

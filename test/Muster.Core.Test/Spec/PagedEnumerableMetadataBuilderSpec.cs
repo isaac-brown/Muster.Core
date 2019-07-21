@@ -9,6 +9,7 @@ namespace Muster.Core.Test.Spec
   using Muster.Core.Test.Fixture;
   using Muster.Core.Utility.Pagination.Metadata;
   using PrettyTest;
+  using Xunit;
 
   /// <summary>
   /// Unit tests for <see cref="PagedEnumerableMetadataBuilder"/>.
@@ -23,16 +24,14 @@ namespace Muster.Core.Test.Spec
     {
       // Arrange.
       var defaultCount = PagedEnumerableCount.Default();
-      var defaultNavigation = PagedEnumerableNavigation.Default();
-      PagedEnumerableMetadata metadata;
+      PagedEnumerableMetadataBuilder builder;
 
       // Act.
-      metadata = PagedEnumerableMetadataBuilder.Create()
-                                               .Build();
+      builder = PagedEnumerableMetadataBuilder.Create();
 
       // Assert.
-      metadata.Count.Should().BeEquivalentTo(defaultCount);
-      metadata.Navigation.Should().BeEquivalentTo(defaultNavigation);
+      builder.Count.Should().BeEquivalentTo(defaultCount);
+      builder.HasMore.Should().BeFalse();
     }
 
     [PrettyFact]
@@ -56,11 +55,7 @@ namespace Muster.Core.Test.Spec
     {
       // Arrange.
       PagedEnumerableCount validInput;
-      validInput = PagedEnumerableCountBuilder.Create()
-                                              .WithCountSkipped(1)
-                                              .WithCurrent(10)
-                                              .WithTotal(100)
-                                              .Build();
+      validInput = PagedEnumerableCountFactory.WellFormed();
 
       PagedEnumerableMetadataBuilder builder = PagedEnumerableMetadataBuilder.Create();
       PagedEnumerableMetadata metadata;
@@ -75,41 +70,17 @@ namespace Muster.Core.Test.Spec
     }
 
     [PrettyFact]
-    public void Given_null_input_When_WithNavigation_is_called_Then_an_ArgumentNullException_will_be_thrown()
+    public void Given_valid_input_When_WithHasMore_is_called_Then_HasMore_will_be_set()
     {
       // Arrange.
-      PagedEnumerableNavigation input = null;
-      PagedEnumerableMetadataBuilder builder = PagedEnumerableMetadataBuilder.Create();
+      PagedEnumerableMetadataBuilder builder;
+      builder = PagedEnumerableMetadataBuilder.Create();
 
       // Act.
-      Action testCode = () => builder.WithNavigation(input);
+      builder = builder.WithHasMore(true);
 
       // Assert.
-      testCode.Should()
-              .Throw<ArgumentNullException>()
-              .WithMessage("*cannot be null* navigation*");
-    }
-
-    [PrettyFact]
-    public void Given_valid_input_When_WithNavigation_is_called_Then_Navigation_will_be_set()
-    {
-      // Arrange.
-      PagedEnumerableNavigation validInput;
-      validInput = PagedEnumerableNavigationBuilder.Create()
-                                                   .WithCurrentPageNumber(1)
-                                                   .WithLastPageNumber(10)
-                                                   .Build();
-
-      PagedEnumerableMetadataBuilder builder = PagedEnumerableMetadataBuilder.Create();
-      PagedEnumerableMetadata metadata;
-
-      // Act.
-      metadata = builder.WithNavigation(validInput)
-                        .Build();
-
-      // Assert.
-      metadata.Navigation.Should()
-                         .BeEquivalentTo(validInput);
+      builder.HasMore.Should().BeTrue();
     }
 
     [PrettyFact]
@@ -117,20 +88,20 @@ namespace Muster.Core.Test.Spec
     {
       // Arrange.
       var count = PagedEnumerableCountFactory.WellFormed();
-      var navigation = PagedEnumerableNavigationFactory.WellFormed();
 
       PagedEnumerableMetadata metadata;
+      const bool hasMore = true;
 
       // Act.
       metadata = PagedEnumerableMetadataBuilder
-              .Create()
-              .WithCount(count)
-              .WithNavigation(navigation)
-              .Build();
+                 .Create()
+                 .WithCount(count)
+                 .WithHasMore(hasMore)
+                 .Build();
 
       // Assert.
       metadata.Count.Should().BeEquivalentTo(count);
-      metadata.Navigation.Should().BeEquivalentTo(navigation);
+      metadata.HasMore.Should().Be(hasMore);
     }
   }
 }

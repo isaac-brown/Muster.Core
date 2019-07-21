@@ -26,23 +26,23 @@ namespace Muster.Core.Utility.Pagination.Metadata
 
       this.Current = builder.Current;
       this.Total = builder.Total;
-      this.Skipped = builder.CountSkipped;
+      this.Taken = builder.Taken;
     }
 
     /// <summary>
     /// Gets the number of records in the current page.
     /// </summary>
-    public long Current { get; }
+    public int Current { get; }
 
     /// <summary>
     /// Gets the number of records total across all pages.
     /// </summary>
-    public long Total { get; }
+    public int Total { get; }
 
     /// <summary>
-    /// Gets the number of records that were skipped.
+    /// Gets the number of records that were taken, this is the upper limit of <see cref="Current"/>.
     /// </summary>
-    public long Skipped { get; }
+    public int Taken { get; }
 
     /// <summary>
     /// Creates a new instance of <see cref="PagedEnumerableCount"/>.

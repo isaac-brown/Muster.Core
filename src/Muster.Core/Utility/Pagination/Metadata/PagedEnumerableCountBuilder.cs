@@ -15,11 +15,11 @@ namespace Muster.Core.Utility.Pagination.Metadata
   [ImmutableObject(immutable: true)]
   public class PagedEnumerableCountBuilder : IBuilder<PagedEnumerableCount>
   {
-    private PagedEnumerableCountBuilder(int current, int total, int countSkipped)
+    private PagedEnumerableCountBuilder(int countCurrent, int countTotal, int countTaken)
     {
-      this.Current = current;
-      this.Total = total;
-      this.CountSkipped = countSkipped;
+      this.Current = countCurrent;
+      this.Total = countTotal;
+      this.Taken = countTaken;
     }
 
     /// <summary>
@@ -33,9 +33,9 @@ namespace Muster.Core.Utility.Pagination.Metadata
     public int Total { get; }
 
     /// <summary>
-    /// Gets the number of records skipped.
+    /// Gets the number of records that were requested, this is the upper limit of <see cref="Current"/>.
     /// </summary>
-    public int CountSkipped { get; }
+    public int Taken { get; }
 
     /// <summary>
     /// Creates a new instance of <see cref="PagedEnumerableCountBuilder"/>.
@@ -43,7 +43,7 @@ namespace Muster.Core.Utility.Pagination.Metadata
     /// <returns>A new instance of <see cref="PagedEnumerableCountBuilder"/>.</returns>
     public static PagedEnumerableCountBuilder Create()
     {
-      return new PagedEnumerableCountBuilder(current: 0, total: 0, countSkipped: 0);
+      return new PagedEnumerableCountBuilder(countCurrent: 0, countTotal: 0, countTaken: 0);
     }
 
     /// <summary>
@@ -62,9 +62,27 @@ namespace Muster.Core.Utility.Pagination.Metadata
       }
 
       return new PagedEnumerableCountBuilder(
-        current: current,
-        total: this.Total,
-        countSkipped: this.CountSkipped);
+        countCurrent: current,
+        countTotal: this.Total,
+        countTaken: this.Taken);
+    }
+
+    /// <summary>
+    /// Creates a new <see cref="PagedEnumerableCountBuilder"/> with <see cref="Taken"/> set.
+    /// </summary>
+    /// <param name="taken">The number of records that were requested, this is the upper limit of <see cref="Current"/>.</param>
+    /// <returns>A new <see cref="PagedEnumerableCountBuilder"/> with <see cref="Taken"/> set.</returns>
+    public PagedEnumerableCountBuilder WithTaken(int taken)
+    {
+      if (taken < 0)
+      {
+        throw new ArgumentOutOfRangeException(nameof(taken), taken, "Argument cannot be negative");
+      }
+
+      return new PagedEnumerableCountBuilder(
+        countCurrent: this.Current,
+        countTotal: this.Total,
+        countTaken: taken);
     }
 
     /// <summary>
@@ -83,30 +101,9 @@ namespace Muster.Core.Utility.Pagination.Metadata
       }
 
       return new PagedEnumerableCountBuilder(
-        current: this.Current,
-        total: total,
-        countSkipped: this.CountSkipped);
-    }
-
-    /// <summary>
-    /// Creates a new <see cref="PagedEnumerableCountBuilder"/> with <see cref="CountSkipped"/> set.
-    /// </summary>
-    /// <param name="countSkipped">The number of records skipped.</param>
-    /// <returns>A new <see cref="PagedEnumerableCountBuilder"/> with <see cref="CountSkipped"/> set.</returns>
-    public PagedEnumerableCountBuilder WithCountSkipped(int countSkipped)
-    {
-      if (countSkipped < 0)
-      {
-        throw new ArgumentOutOfRangeException(
-          nameof(countSkipped),
-          countSkipped,
-          $"Argument cannot be negative.");
-      }
-
-      return new PagedEnumerableCountBuilder(
-        current: this.Current,
-        total: this.Total,
-        countSkipped: countSkipped);
+        countCurrent: this.Current,
+        countTotal: total,
+        countTaken: this.Taken);
     }
 
     /// <inheritdoc/>

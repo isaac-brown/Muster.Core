@@ -33,16 +33,15 @@ namespace Muster.Core.Test.Spec
     }
 
     [PrettyFact]
-    public void When_Default_is_called_Then_Count_and_Navigation_should_equal_respective_Default()
+    public void When_Default_is_called_Then_all_properties_should_equal_respective_Default()
     {
       // Act.
       var defaultMetadata = PagedEnumerableMetadata.Default();
       var defaultCount = PagedEnumerableCount.Default();
-      var defaultNavigation = PagedEnumerableNavigation.Default();
 
       // Assert.
       defaultMetadata.Count.Should().BeEquivalentTo(defaultCount);
-      defaultMetadata.Navigation.Should().BeEquivalentTo(defaultNavigation);
+      defaultMetadata.HasMore.Should().BeFalse();
     }
   }
 }

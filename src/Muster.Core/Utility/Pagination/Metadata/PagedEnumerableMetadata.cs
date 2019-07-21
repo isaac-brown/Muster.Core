@@ -22,7 +22,7 @@ namespace Muster.Core.Utility.Pagination.Metadata
       }
 
       this.Count = builder.Count ?? PagedEnumerableCount.Default();
-      this.Navigation = builder.Navigation ?? PagedEnumerableNavigation.Default();
+      this.HasMore = builder.HasMore;
     }
 
     /// <summary>
@@ -31,9 +31,9 @@ namespace Muster.Core.Utility.Pagination.Metadata
     public PagedEnumerableCount Count { get; }
 
     /// <summary>
-    /// Gets metadata relating to navigation between pages.
+    /// Gets a value indicating whether more records are available.
     /// </summary>
-    public PagedEnumerableNavigation Navigation { get; }
+    public bool HasMore { get; }
 
     /// <summary>
     /// Initializes a new instance of the <see cref="PagedEnumerableMetadata"/> class

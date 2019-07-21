@@ -15,35 +15,33 @@ namespace Muster.Core.Utility.Pagination.Metadata
   {
     /// <summary>
     /// Initializes a new instance of the <see cref="PagedEnumerableMetadataBuilder"/> class
-    /// using the given <paramref name="navigation"/>.
+    /// using the given <paramref name="count"/> and <paramref name="hasMore"/>.
     /// </summary>
-    /// <param name="navigation">The navigation object to use.</param>
     /// <param name="count">The count object to use.</param>
-    private PagedEnumerableMetadataBuilder(
-      PagedEnumerableCount count,
-      PagedEnumerableNavigation navigation)
+    /// <param name="hasMore">Indicates whether more records are available.</param>
+    public PagedEnumerableMetadataBuilder(PagedEnumerableCount count, bool hasMore)
     {
       this.Count = count;
-      this.Navigation = navigation;
+      this.HasMore = hasMore;
     }
 
     /// <summary>
     /// Initializes a new instance of the <see cref="PagedEnumerableMetadataBuilder"/> class.
     /// </summary>
     private PagedEnumerableMetadataBuilder()
-      : this(PagedEnumerableCount.Default(), PagedEnumerableNavigation.Default())
+      : this(count: PagedEnumerableCount.Default(), hasMore: false)
     {
     }
 
     /// <summary>
-    /// Gets metadata related to counts of pages.
+    /// Gets metadata related to counts of.
     /// </summary>
     public PagedEnumerableCount Count { get; }
 
     /// <summary>
-    /// Gets metadata relating to navigation between pages.
+    /// Gets a value indicating whether more records are available.
     /// </summary>
-    public PagedEnumerableNavigation Navigation { get; }
+    public bool HasMore { get; }
 
     /// <summary>
     /// Creates a new <see cref="PagedEnumerableMetadataBuilder"/> object.
@@ -63,7 +61,7 @@ namespace Muster.Core.Utility.Pagination.Metadata
     /// <summary>
     /// Creates a new <see cref="PagedEnumerableMetadataBuilder"/> with <see cref="Count"/> set.
     /// </summary>
-    /// <param name="count">The metadata related to counts of pages.</param>
+    /// <param name="count">The metadata related to counts of records.</param>
     /// <returns>A new <see cref="PagedEnumerableMetadataBuilder"/> with <see cref="Count"/> set.</returns>
     public PagedEnumerableMetadataBuilder WithCount(PagedEnumerableCount count)
     {
@@ -72,22 +70,18 @@ namespace Muster.Core.Utility.Pagination.Metadata
         throw new ArgumentNullException(nameof(count));
       }
 
-      return new PagedEnumerableMetadataBuilder(count, this.Navigation);
+      return new PagedEnumerableMetadataBuilder(count, this.HasMore);
     }
 
     /// <summary>
-    /// Creates a new <see cref="PagedEnumerableMetadataBuilder"/> with <see cref="Navigation"/> set.
+    /// Creates a new <see cref="PagedEnumerableMetadataBuilder"/> with <see cref="HasMore"/> set.
     /// </summary>
-    /// <param name="navigation">The metadata relating to navigation between pages.</param>
-    /// <returns>A new <see cref="PagedEnumerableMetadataBuilder"/> with <see cref="Navigation"/> set.</returns>
-    public PagedEnumerableMetadataBuilder WithNavigation(PagedEnumerableNavigation navigation)
+    /// <param name="hasMore">Indicates whether more records are available.</param>
+    /// <returns>A new <see cref="PagedEnumerableMetadataBuilder"/> with <see cref="HasMore"/> set.</returns>
+    public PagedEnumerableMetadataBuilder WithHasMore(bool hasMore)
     {
-      if (navigation is null)
-      {
-        throw new ArgumentNullException(nameof(navigation));
-      }
-
-      return new PagedEnumerableMetadataBuilder(this.Count, navigation);
+      return new PagedEnumerableMetadataBuilder(this.Count, hasMore);
+      throw new NotImplementedException();
     }
   }
 }

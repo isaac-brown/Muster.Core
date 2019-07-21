@@ -33,15 +33,15 @@ namespace Muster.Core.Test.Spec
     }
 
     [PrettyFact]
-    public void When_Default_is_called_Then_Skipped_Total_and_Current_should_be_0()
+    public void When_Default_is_called_Then_Taken_Total_and_Current_should_be_0()
     {
       // Act.
       var defaultCount = PagedEnumerableCount.Default();
 
       // Assert.
-      defaultCount.Skipped.Should().Be(0L);
-      defaultCount.Total.Should().Be(0L);
-      defaultCount.Current.Should().Be(0L);
+      defaultCount.Current.Should().Be(0);
+      defaultCount.Taken.Should().Be(0);
+      defaultCount.Total.Should().Be(0);
     }
   }
 }

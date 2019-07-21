@@ -19,9 +19,9 @@ namespace Muster.Core.Test.Fixture
     {
       PagedEnumerableCount count;
       count = PagedEnumerableCountBuilder.Create()
-                                         .WithCountSkipped(1)
                                          .WithCurrent(1)
-                                         .WithTotal(2)
+                                         .WithTaken(2)
+                                         .WithTotal(3)
                                          .Build();
 
       return count;
