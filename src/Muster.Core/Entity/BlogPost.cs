@@ -1,4 +1,4 @@
-﻿// <copyright file="BlogPost.cs" company="Isaac Brown">
+// <copyright file="BlogPost.cs" company="Isaac Brown">
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 // </copyright>
 
@@ -37,7 +37,7 @@ namespace Muster.Core.Entity
     /// <summary>
     /// Gets the text content of the <see cref="BlogPost"/>.
     /// </summary>
-    public string Content { get; private set; }
+    public string Content { get; }
 
     /// <summary>
     /// Gets the instant that the <see cref="BlogPost"/> was created.
