@@ -1,4 +1,4 @@
-// <copyright file="Tag.cs" company="Isaac Brown">
+﻿// <copyright file="Tag.cs" company="Isaac Brown">
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 // </copyright>
 
@@ -9,14 +9,14 @@ namespace Muster.Core.Entity
   /// <summary>
   /// A tag to help describe and categorize a <see cref="BlogPost"/>.
   /// </summary>
-  public class Tag
+  public struct Tag
   {
     /// <summary>
-    /// Initializes a new instance of the <see cref="Tag"/> class
+    /// Initializes a new instance of the <see cref="Tag"/> struct
     /// using the given name.
     /// </summary>
     /// <param name="name">The name for the tag.</param>
-    protected Tag(string name)
+    private Tag(string name)
     {
       string trimmedName = name?.Trim();
       if (trimmedName == string.Empty)
