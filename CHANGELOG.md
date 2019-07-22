@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.2.0](https://github.com/isaac-brown/Muster.Core/compare/v0.1.2...v0.2.0) (2019-07-22)
+
+
+### Bug Fixes
+
+* **blog-post:** remove `private` setter on `Content` ([327ca02](https://github.com/isaac-brown/Muster.Core/commit/327ca02))
+
+
+### Features
+
+* **blog-post:** change `Id` to string type ([67a4eca](https://github.com/isaac-brown/Muster.Core/commit/67a4eca))
+* **pagination:** rewrite pagination so there is no `Navigation` ([ebb4f6c](https://github.com/isaac-brown/Muster.Core/commit/ebb4f6c))
+* **repository:** add `IAsyncRepsitory` interface ([bf4cf87](https://github.com/isaac-brown/Muster.Core/commit/bf4cf87))
+* **tag:** is now a `struct` rather than a class ([40b62d7](https://github.com/isaac-brown/Muster.Core/commit/40b62d7))
+* **tag:** rename `Create` method to `FromName` ([e59fbb7](https://github.com/isaac-brown/Muster.Core/commit/e59fbb7))
+
+
+### BREAKING CHANGES
+
+* **blog-post:** no longer a Guid
+
+
+
 ### [0.1.2](https://github.com/isaac-brown/Muster.Core/compare/v0.1.1...v0.1.2) (2019-07-14)
 
 
