@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.3.0](https://github.com/isaac-brown/Muster.Core/compare/v0.2.0...v0.3.0) (2019-07-22)
+
+
+### Features
+
+* **async-repository:** add `Async` suffix to all methods ([ee6ec51](https://github.com/isaac-brown/Muster.Core/commit/ee6ec51))
+
+
+
 ## [0.2.0](https://github.com/isaac-brown/Muster.Core/compare/v0.1.2...v0.2.0) (2019-07-22)
 
 
