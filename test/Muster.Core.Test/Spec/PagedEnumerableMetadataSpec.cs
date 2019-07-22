@@ -18,7 +18,7 @@ namespace Muster.Core.Test.Spec
 #pragma warning disable SA1600 // Elements must be documented
 
     [PrettyFact]
-    public void Given_a_null_builder_When_Create_is_called_Then_an_AgrumentNullException_should_be_thrown()
+    public void Given_a_null_builder_When_Create_is_called_Then_an_ArgumentNullException_should_be_thrown()
     {
       // Arrange.
       PagedEnumerableMetadataBuilder builder = null;
